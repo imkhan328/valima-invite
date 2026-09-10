@@ -752,14 +752,11 @@
   .seal-monogram{
     position:relative;
     z-index:2;
-    width:380px;
-    height:72px;
-    margin:0;
+    width:210px;
+    height:74px;
+    margin:0 auto;
     padding:0;
-    display:grid;
-    grid-template-columns:1fr 30px 1fr;
-    align-items:center;
-    justify-items:center;
+    display:block;
     color:#173B68;
     font-family:'Parisienne', cursive;
     font-size:4.8rem;
@@ -767,21 +764,29 @@
   }
 
   .seal-monogram > span{
-    display:block;
+    position:absolute;
+    top:50%;
+    width:auto;
     margin:0;
     padding:0;
-    width:100%;
+    display:block;
     text-align:center;
     line-height:1;
-    transform:none !important;
+    transform:translate(-50%,-50%) !important;
   }
 
-  .seal-monogram > span:first-child,
+  .seal-monogram > span:first-child{
+    left:18%;
+    font-size:4.8rem;
+  }
+
   .seal-monogram > span:last-child{
+    left:82%;
     font-size:4.8rem;
   }
 
   .seal-monogram .seal-amp{
+    left:50%;
     font-family:'Cormorant Garamond',serif;
     font-size:2.35rem;
     font-style:italic;
@@ -816,19 +821,53 @@
     }
 
     .seal-monogram{
-      width:150px;
+      width:190px;
       height:68px;
     }
 
     .seal-monogram > span:first-child,
     .seal-monogram > span:last-child{
-      font-size:4.1rem;
+      font-size:3.95rem;
     }
 
     .seal-monogram .seal-amp{
       font-size:2rem;
-      transform:translateY(2px);
     }
+  }
+
+  /* ---------- opening-screen floral framing ---------- */
+  .seal-floral{
+    position:absolute;
+    z-index:1;
+    width:clamp(115px,22vw,190px);
+    height:auto;
+    pointer-events:none;
+    opacity:.48;
+    filter:drop-shadow(0 4px 10px rgba(45,78,60,.07));
+    transition:opacity .68s ease, transform .72s cubic-bezier(.4,0,.2,1);
+  }
+
+  .seal-floral-left{ left:clamp(-28px,-2vw,-10px); top:8%; transform:rotate(-8deg); }
+  .seal-floral-right{ right:clamp(-28px,-2vw,-10px); bottom:8%; transform:rotate(172deg); }
+
+  #seal-screen:has(.seal-wrap.opening) .seal-floral-left{
+    opacity:0;
+    transform:rotate(-8deg) translate(-46px,-18px) scale(.92);
+  }
+  #seal-screen:has(.seal-wrap.opening) .seal-floral-right{
+    opacity:0;
+    transform:rotate(172deg) translate(-46px,-18px) scale(.92);
+  }
+
+  .seal-floral .stem{ fill:none; stroke:#769783; stroke-linecap:round; stroke-linejoin:round; }
+  .seal-floral .leaf{ fill:#789A84; }
+  .seal-floral .petal{ fill:#F3E9DD; stroke:#D7C5B1; stroke-width:1; }
+  .seal-floral .center{ fill:#C9A961; }
+
+  @media(max-width:640px){
+    .seal-floral{ width:145px; opacity:.38; }
+    .seal-floral-left{ left:-28px; top:6%; }
+    .seal-floral-right{ right:-28px; bottom:6%; }
   }
 
   .seal-cta{
@@ -950,24 +989,32 @@
 
   /* ---------- intricate repeating arabesque pattern ---------- */
   .bg-pattern{
-    opacity:.31;
+    position:fixed;
+    inset:0;
+    z-index:1;
+    opacity:.46;
+    pointer-events:none;
     background-image:
-      radial-gradient(circle at 50% 50%,rgba(66,101,83,.16) 0 1.1px,transparent 1.7px),
-      linear-gradient(30deg,transparent 47%,rgba(66,101,83,.055) 48%,rgba(66,101,83,.055) 52%,transparent 53%),
-      linear-gradient(150deg,transparent 47%,rgba(66,101,83,.055) 48%,rgba(66,101,83,.055) 52%,transparent 53%),
-      linear-gradient(90deg,transparent 48%,rgba(255,255,255,.20) 49%,rgba(255,255,255,.20) 51%,transparent 52%),
-      linear-gradient(0deg,transparent 48%,rgba(255,255,255,.20) 49%,rgba(255,255,255,.20) 51%,transparent 52%);
+      radial-gradient(circle at 50% 50%,rgba(66,101,83,.24) 0 1.1px,transparent 1.7px),
+      linear-gradient(30deg,transparent 47%,rgba(66,101,83,.09) 48%,rgba(66,101,83,.09) 52%,transparent 53%),
+      linear-gradient(150deg,transparent 47%,rgba(66,101,83,.09) 48%,rgba(66,101,83,.09) 52%,transparent 53%),
+      linear-gradient(90deg,transparent 48%,rgba(255,255,255,.13) 49%,rgba(255,255,255,.13) 51%,transparent 52%),
+      linear-gradient(0deg,transparent 48%,rgba(255,255,255,.13) 49%,rgba(255,255,255,.13) 51%,transparent 52%);
     background-size:72px 72px,72px 72px,72px 72px,144px 144px,144px 144px;
   }
 
   .bg-pattern-2{
-    opacity:.23;
+    position:fixed;
+    inset:0;
+    z-index:1;
+    opacity:.30;
+    pointer-events:none;
     mix-blend-mode:normal;
     background-image:
-      radial-gradient(circle at 50% 50%,transparent 0 10px,rgba(184,155,98,.14) 10.5px 11.5px,transparent 12px),
-      radial-gradient(circle at 50% 50%,transparent 0 23px,rgba(66,101,83,.10) 23.5px 24.5px,transparent 25px),
-      linear-gradient(60deg,transparent 47%,rgba(184,155,98,.055) 48%,rgba(184,155,98,.055) 52%,transparent 53%),
-      linear-gradient(-60deg,transparent 47%,rgba(184,155,98,.055) 48%,rgba(184,155,98,.055) 52%,transparent 53%);
+      radial-gradient(circle at 50% 50%,transparent 0 10px,rgba(184,155,98,.20) 10.5px 11.5px,transparent 12px),
+      radial-gradient(circle at 50% 50%,transparent 0 23px,rgba(66,101,83,.15) 23.5px 24.5px,transparent 25px),
+      linear-gradient(60deg,transparent 47%,rgba(184,155,98,.08) 48%,rgba(184,155,98,.08) 52%,transparent 53%),
+      linear-gradient(-60deg,transparent 47%,rgba(184,155,98,.08) 48%,rgba(184,155,98,.08) 52%,transparent 53%);
     background-size:144px 144px,144px 144px,72px 72px,72px 72px;
   }
 
@@ -1243,12 +1290,12 @@
 /* ================= INDEX 10 FINAL POLISH ================= */
   .background-floral{
     position:fixed;
-    z-index:0;
+    z-index:2;
     pointer-events:none;
     width:min(240px,18vw);
     min-width:150px;
-    opacity:.46;
-    filter:drop-shadow(0 8px 18px rgba(70,100,90,.08));
+    opacity:.70;
+    filter:brightness(.82) saturate(1.12) drop-shadow(0 8px 18px rgba(45,78,60,.14));
   }
 
   .background-floral svg{
@@ -1296,28 +1343,22 @@
     text-align:center;
   }
 
-  /* Keep the bouquet behind the content and fade it further on small screens */
+  /* Mobile composition */
   @media (max-width:640px){
-    .new-seal{
+    .background-floral{
       width:190px;
-      height:190px;
+      min-width:0;
+      opacity:.55;
     }
 
-    .seal-monogram{
-      width:180px;
-      height:68px;
-      grid-template-columns:1fr 32px 1fr;
-      margin:0 auto;
+    .floral-left{
+      left:-45px;
+      top:5%;
     }
 
-    .seal-monogram > span:first-child,
-    .seal-monogram > span:last-child{
-      font-size:4rem;
-    }
-
-    .seal-monogram .seal-amp{
-      font-size:2rem;
-      transform:translateY(2px);
+    .floral-right{
+      right:-45px;
+      bottom:5%;
     }
   }
 
@@ -1325,7 +1366,6 @@
     .seal-monogram{
       width:176px;
       height:64px;
-      grid-template-columns:1fr 30px 1fr;
     }
 
     .seal-monogram > span:first-child,
@@ -1335,7 +1375,6 @@
 
     .seal-monogram .seal-amp{
       font-size:1.9rem;
-      transform:translateY(2px);
     }
   }
 </style>
@@ -1543,7 +1582,41 @@
   </div>
 </div>
 
-<div id="seal-screen"> 
+<div id="seal-screen">
+  <svg class="seal-floral seal-floral-left" viewBox="0 0 180 260" aria-hidden="true">
+    <path class="stem" stroke-width="3" d="M20 246 C36 193 61 150 94 112 C121 80 141 46 154 12"/>
+    <path class="stem" stroke-width="2" d="M49 187 C39 151 33 119 39 84"/>
+    <path class="stem" stroke-width="2" d="M72 150 C105 136 127 116 151 84"/>
+    <ellipse class="leaf" cx="41" cy="165" rx="9" ry="21" transform="rotate(-70 41 165)"/>
+    <ellipse class="leaf" cx="49" cy="133" rx="9" ry="22" transform="rotate(-45 49 133)"/>
+    <ellipse class="leaf" cx="67" cy="143" rx="9" ry="22" transform="rotate(55 67 143)"/>
+    <ellipse class="leaf" cx="88" cy="116" rx="9" ry="21" transform="rotate(44 88 116)"/>
+    <ellipse class="leaf" cx="114" cy="84" rx="8" ry="20" transform="rotate(42 114 84)"/>
+    <g transform="translate(119 64)">
+      <circle class="petal" r="12"/><circle class="petal" cy="-9" r="8"/><circle class="petal" cx="8" cy="-3" r="8"/><circle class="petal" cx="7" cy="7" r="8"/><circle class="petal" cx="-7" cy="7" r="8"/><circle class="petal" cx="-8" cy="-3" r="8"/><circle class="center" r="4"/>
+    </g>
+    <g transform="translate(36 88) scale(.78)">
+      <circle class="petal" r="12"/><circle class="petal" cy="-9" r="8"/><circle class="petal" cx="8" cy="-3" r="8"/><circle class="petal" cx="7" cy="7" r="8"/><circle class="petal" cx="-7" cy="7" r="8"/><circle class="petal" cx="-8" cy="-3" r="8"/><circle class="center" r="4"/>
+    </g>
+  </svg>
+
+  <svg class="seal-floral seal-floral-right" viewBox="0 0 180 260" aria-hidden="true">
+    <path class="stem" stroke-width="3" d="M20 246 C36 193 61 150 94 112 C121 80 141 46 154 12"/>
+    <path class="stem" stroke-width="2" d="M49 187 C39 151 33 119 39 84"/>
+    <path class="stem" stroke-width="2" d="M72 150 C105 136 127 116 151 84"/>
+    <ellipse class="leaf" cx="41" cy="165" rx="9" ry="21" transform="rotate(-70 41 165)"/>
+    <ellipse class="leaf" cx="49" cy="133" rx="9" ry="22" transform="rotate(-45 49 133)"/>
+    <ellipse class="leaf" cx="67" cy="143" rx="9" ry="22" transform="rotate(55 67 143)"/>
+    <ellipse class="leaf" cx="88" cy="116" rx="9" ry="21" transform="rotate(44 88 116)"/>
+    <ellipse class="leaf" cx="114" cy="84" rx="8" ry="20" transform="rotate(42 114 84)"/>
+    <g transform="translate(119 64)">
+      <circle class="petal" r="12"/><circle class="petal" cy="-9" r="8"/><circle class="petal" cx="8" cy="-3" r="8"/><circle class="petal" cx="7" cy="7" r="8"/><circle class="petal" cx="-7" cy="7" r="8"/><circle class="petal" cx="-8" cy="-3" r="8"/><circle class="center" r="4"/>
+    </g>
+    <g transform="translate(36 88) scale(.78)">
+      <circle class="petal" r="12"/><circle class="petal" cy="-9" r="8"/><circle class="petal" cx="8" cy="-3" r="8"/><circle class="petal" cx="7" cy="7" r="8"/><circle class="petal" cx="-7" cy="7" r="8"/><circle class="petal" cx="-8" cy="-3" r="8"/><circle class="center" r="4"/>
+    </g>
+  </svg>
+
   <div class="seal-wrap" id="seal-wrap"> 
     <div class="new-seal">
       <div class="seal-flower seal-flower-left">❦</div>
