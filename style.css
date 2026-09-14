@@ -1268,16 +1268,12 @@
 
   @media(max-width:640px){
   .names{
-    font-size:clamp(2.5rem,12vw,4rem);
-    white-space:normal;
-    width:100%;
+    font-size:clamp(2.2rem,10vw,3.2rem);
+    line-height:1;
+    white-space:nowrap;
+    letter-spacing:-.015em;
+    -webkit-text-stroke:.25px currentColor;
   }
-
-  .names .line1,
-  .names .line2{
-    white-space:normal;
-  }
-}
 
 /* ================= FULL-SCREEN FLORAL ARTWORK ================= */
 
@@ -1569,5 +1565,4 @@ body::after{
   50%{
     filter:brightness(1.7);
   }
-
 }

@@ -130,12 +130,6 @@ function wrapLetters(text){
     bokehLayer.style.transform =
       `translate3d(0, ${y * 0.15}px, 0)`;
 
-    if(floralBg){
-      const floralShift = Math.max(-20, y * -0.008);
-      floralBg.style.transform =
-        `translate3d(0, ${floralShift}px, 0)`;
-    }
-
     parallaxFrame = null;
   }
 
