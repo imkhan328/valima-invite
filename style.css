@@ -1267,18 +1267,17 @@
   }
 
   @media(max-width:640px){
-    .names{
-      font-size:clamp(3rem,15vw,4.7rem);
-      line-height:.96;
-    }
-
-    body::before,
-    body::after{
-      width:190px;
-      height:190px;
-      opacity:.38;
-    }
+  .names{
+    font-size:clamp(2.5rem,12vw,4rem);
+    white-space:normal;
+    width:100%;
   }
+
+  .names .line1,
+  .names .line2{
+    white-space:normal;
+  }
+}
 
 /* ================= FULL-SCREEN FLORAL ARTWORK ================= */
 
