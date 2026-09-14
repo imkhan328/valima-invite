@@ -1340,13 +1340,13 @@
     font-family:'Parisienne','Cormorant Garamond',cursive;
     font-size:clamp(2rem,5.4vw,3.05rem);
     line-height:1;
-    white-space:nowrap;
+    white-space:normal;
     width:100%;
   }
 
   .names .line1,
   .names .line2{
-    white-space:nowrap;
+    white-space:normal;
     overflow:visible;
   }
 
