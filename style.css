@@ -1611,3 +1611,55 @@ body::after{
   }
 
 }
+
+/* ================= MOBILE CANVAS — FINAL ================= */
+
+@media(max-width:640px){
+
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow:hidden !important;
+  }
+
+  .stage{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    margin:0 !important;
+  }
+
+  .scroll-area{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+  }
+
+  .container{
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  .names{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+    transform:none !important;
+  }
+
+  .names .line1,
+  .names .line2{
+    width:100% !important;
+    max-width:100% !important;
+    text-align:center !important;
+  }
+
+}
