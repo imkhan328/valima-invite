@@ -141,11 +141,7 @@ function wrapLetters(text){
 
   bokehLayer.style.transform =
     `translateY(${y * 0.15}px)`;
-
-  if (floralBg) {
-    floralBg.style.transform =
-      `translate3d(0, ${y * -0.035}px, 0)`;
-  }
+    
 }, { passive: true });
 
   const particleContainer = document.getElementById('particles');
