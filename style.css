@@ -1566,3 +1566,48 @@ body::after{
     filter:brightness(1.7);
   }
 }
+
+/* ================= MOBILE BACKGROUND FIX ================= */
+
+@media(max-width:640px){
+
+  .floral-bg-image{
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+
+    width:100vw !important;
+    height:100vh !important;
+
+    object-fit:cover !important;
+    object-position:center center !important;
+
+    z-index:1 !important;
+    pointer-events:none;
+  }
+
+}
+
+/* ================= MOBILE NAME TYPOGRAPHY ================= */
+
+@media(max-width:640px){
+
+  .names{
+    font-size:clamp(2.35rem,10vw,3.25rem) !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+    letter-spacing:-0.015em;
+  }
+
+  .names .line1,
+  .names .line2{
+    white-space:nowrap !important;
+  }
+
+  .names .letter{
+    -webkit-text-stroke:0.45px currentColor;
+    text-shadow:
+      0 2px 7px rgba(30,60,95,.16);
+  }
+
+}
