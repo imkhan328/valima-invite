@@ -113,37 +113,6 @@ function wrapLetters(text){
   }, { root: scrollAreaEl, threshold: 0.18 });
   document.querySelectorAll('.anim, .event-card').forEach(el => scrollObserver.observe(el));
 
-  const rays = document.querySelector('.rays');
-  const bokehLayer = document.getElementById('bokehLayer');
-  const floralBg = document.querySelector('.floral-bg-image');
-
-  /* Smooth, lightweight scroll parallax */
-  let latestScrollY = 0;
-  let parallaxFrame = null;
-
-  function updateParallax(){
-    const y = latestScrollY;
-
-    rays.style.transform =
-      `translate3d(0, ${y * 0.08}px, 0) rotate(${y * 0.02}deg)`;
-
-    bokehLayer.style.transform =
-      `translate3d(0, ${y * 0.15}px, 0)`;
-
-    parallaxFrame = null;
-  }
-
-  scrollAreaEl.addEventListener('scroll', () => {
-  const y = scrollAreaEl.scrollTop;
-
-  rays.style.transform =
-    `translateY(${y * 0.08}px) rotate(${y * 0.02}deg)`;
-
-  bokehLayer.style.transform =
-    `translateY(${y * 0.15}px)`;
-    
-}, { passive: true });
-
   const particleContainer = document.getElementById('particles');
   const particleCount = window.innerWidth < 640 ? 14 : 24;
   for(let i = 0; i < particleCount; i++){
