@@ -1274,7 +1274,7 @@
     letter-spacing:-.015em;
     -webkit-text-stroke:.25px currentColor;
   }
-
+  }
 /* ================= FULL-SCREEN FLORAL ARTWORK ================= */
 
 /*
@@ -1330,33 +1330,7 @@
     object-fit:cover;
   }
 }
-  /* Groom's full name stays on one line after opening */
-  .names{
-    font-family:'Parisienne','Cormorant Garamond',cursive;
-    font-size:clamp(2rem,5.4vw,3.05rem);
-    line-height:1;
-    white-space:normal;
-    width:100%;
-  }
-
-  .names .line1,
-  .names .line2{
-    white-space:normal;
-    overflow:visible;
-  }
-
-  .names .letter{
-    white-space:pre;
-  }
-
-  .names .amp{
-    font-size:clamp(2.35rem,6.2vw,3.35rem);
-    margin:14px auto 16px;
-    line-height:.9;
-    width:auto;
-    text-align:center;
-  }
-
+ 
   /* Mobile composition */
   @media (max-width:640px){
     .background-floral{
@@ -1662,4 +1636,83 @@ body::after{
     text-align:center !important;
   }
 
+}
+
+/* ================= PC BACKGROUND CANVAS FIX ================= */
+
+@media (min-width: 641px){
+
+  .floral-bg-picture{
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+
+  .floral-bg-picture .floral-bg-image{
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  .names{
+    font-size: clamp(3rem, 5.2vw, 4.1rem) !important;
+    line-height: .95 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .names .line1,
+  .names .line2{
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ================= PC FLORAL BACKGROUND — ACTUAL FIX ================= */
+
+.floral-bg-picture{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  overflow:hidden !important;
+}
+
+.floral-bg-picture .floral-bg-image{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+
+@media(max-width:640px){
+  .floral-bg-picture .floral-bg-image{
+    object-fit:cover !important;
+  }
 }
