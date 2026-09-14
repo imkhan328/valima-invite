@@ -1593,7 +1593,7 @@ body::after{
 @media(max-width:640px){
 
   .names{
-    font-size:clamp(2.35rem,10vw,3.25rem) !important;
+    font-size:clamp(1.95rem,8.7vw,2.8rem) !important;
     line-height:1 !important;
     white-space:nowrap !important;
     letter-spacing:-0.015em;
